@@ -61,32 +61,33 @@ fine-tune-llama-2-for-sentiment-analysis/
 
 ## Training Configuration
 
-| Parameter | Value |
-|-----------|-------|
-| Base Model | Llama 2 7B HF |
-| Quantization | 4-bit NF4 |
-| LoRA Rank | 64 |
-| LoRA Alpha | 16 |
-| Learning Rate | 2e-4 |
-| Epochs | 3 |
-| Batch Size | 1 |
-| Gradient Accumulation | 8 |
-| Max Sequence Length | 1024 |
+| Parameter             | Value         |
+| --------------------- | ------------- |
+| Base Model            | Llama 2 7B HF |
+| Quantization          | 4-bit NF4     |
+| LoRA Rank             | 64            |
+| LoRA Alpha            | 16            |
+| Learning Rate         | 2e-4          |
+| Epochs                | 3             |
+| Batch Size            | 1             |
+| Gradient Accumulation | 8             |
+| Max Sequence Length   | 1024          |
 
 ## Results
 
 The fine-tuned model demonstrates substantial improvement over the base model:
 
-| Metric | Base Model | Fine-Tuned Model |
-|--------|------------|------------------|
-| Overall Accuracy | ~33% | 80%+ |
-| Positive Class Accuracy | Low | High |
-| Negative Class Accuracy | Low | High |
-| Neutral Class Accuracy | Low | Moderate |
+| Metric                  | Base Model | Fine-Tuned Model |
+| ----------------------- | ---------- | ---------------- |
+| Overall Accuracy        | ~33%       | 80%+             |
+| Positive Class Accuracy | Low        | High             |
+| Negative Class Accuracy | Low        | High             |
+| Neutral Class Accuracy  | Low        | Moderate         |
 
 ## Usage
 
 1. Load the fine-tuned model:
+
 ```python
 from peft import AutoPeftModelForCausalLM
 from transformers import AutoTokenizer
@@ -96,9 +97,10 @@ tokenizer = AutoTokenizer.from_pretrained("./merged_model/")
 ```
 
 2. Run inference:
+
 ```python
-prompt = """Analyze the sentiment of the news headline enclosed in square brackets, 
-determine if it is positive, neutral, or negative, and return the answer as 
+prompt = """Analyze the sentiment of the news headline enclosed in square brackets,
+determine if it is positive, neutral, or negative, and return the answer as
 the corresponding sentiment label "positive" or "neutral" or "negative".
 
 [Company reports record quarterly earnings] = """
