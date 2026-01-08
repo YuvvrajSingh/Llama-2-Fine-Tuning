@@ -1,0 +1,23 @@
+# Model weights and outputs
+trained_weights/
+merged_model/
+test_predictions.csv
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.ipynb_checkpoints/
+
+# Environment
+.env
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+logs/
+*.log
